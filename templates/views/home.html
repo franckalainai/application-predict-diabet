@@ -172,9 +172,9 @@
   $(document).ready(async () => {
 
 
-    let confusionImg = await $.get("localhost/api/getplotdata/confusion");
-    let scatteredPlot = await $.get("localhost/api/getplotdata/scatter");
-    let histogram = await $.get("localhost/api/getplotdata/histogram");
+    let confusionImg = await $.get("http://127.0.0.1:5001/api/getplotdata/confusion");
+    let scatteredPlot = await $.get("http://127.0.0.1:5001/api/getplotdata/scatter");
+    let histogram = await $.get("http://127.0.0.1:5001/api/getplotdata/histogram");
 
     $('#confusion-matrix').attr('src', `data:image/${confusionImg.ext};base64,${confusionImg.img}`)
     $('#scattered-plot').attr('src', `data:image/${scatteredPlot.ext};base64,${scatteredPlot.img}`)
