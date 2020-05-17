@@ -156,7 +156,7 @@
     data =  [$('#pregnancies').val(), $('#glucose').val(),$('#bloodPressure').val(),$('#skinThickness').val(),$('#insulin').val(),$('#bmi').val(),$('#diabetesPedigreeFunction').val(),$('#age').val()]
     console.log(JSON.stringify(data));
     var result =  $.ajax({
-      url: "http://127.0.0.1:5001/api/predict",
+      url: "localhost/api/predict",
       method: "POST",
       data: JSON.stringify(data),
       contentType: "application/json",
@@ -172,9 +172,9 @@
   $(document).ready(async () => {
 
 
-    let confusionImg = await $.get("http://127.0.0.1:5001/api/getplotdata/confusion");
-    let scatteredPlot = await $.get("http://127.0.0.1:5001/api/getplotdata/scatter");
-    let histogram = await $.get("http://127.0.0.1:5001/api/getplotdata/histogram");
+    let confusionImg = await $.get("localhost/api/getplotdata/confusion");
+    let scatteredPlot = await $.get("localhost/api/getplotdata/scatter");
+    let histogram = await $.get("localhost/api/getplotdata/histogram");
 
     $('#confusion-matrix').attr('src', `data:image/${confusionImg.ext};base64,${confusionImg.img}`)
     $('#scattered-plot').attr('src', `data:image/${scatteredPlot.ext};base64,${scatteredPlot.img}`)
